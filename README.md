@@ -66,6 +66,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 
 次に、コンテナにログインしてみましょう。
+
 `-it`オプションを付与します。（--interactive、--ttyを使用可能にします）
 ```
 $ docker run -it -d registry.access.redhat.com/rhel7.6
