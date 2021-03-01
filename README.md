@@ -198,7 +198,7 @@ CONTAINER ID   IMAGE                                                    COMMAND 
 $ docker rm -f 00189317502b
 ```
 
-## Dockerによるコンテナーライフサイクル管理
+### Dockerによるコンテナーライフサイクル管理
 Dockerには、コンテナーを作成および管理するためのサブコマンドセットがあります。
 開発者はこれらのサブコマンドを使⽤して、コンテナーおよびコンテナーイメージのライフサイクルを管理します。
 コンテナーとイメージの状態を変更するサブコマンドで最も使⽤頻度の⾼いものについて、次の図に概要を⽰します。
@@ -209,7 +209,7 @@ Dockerは、実⾏中および停⽌中のコンテナーに関する情報を�
 コンテナーとイメージの情報をクエリーするサブコマンドで最も使⽤頻度の⾼いものについて、次の図に概要を⽰します。
 ![](https://raw.githubusercontent.com/NakamuraYosuke/Day02-DockerAndGit/main/images/dockerlifecycle2.png)
 
-## Dockerネットワーク
+### Dockerネットワーク
 ![](https://raw.githubusercontent.com/NakamuraYosuke/Day02-DockerAndGit/main/images/dockernetwork.png)
 Dockerは同じホスト上にコンテナーを作成すると、各コンテナーに固有の IP アドレスを割り当て、それらすべてを同じソフトウェア定義ネットワークに接続します。
 これらのコンテナーは、IP アドレスによって互いに⾃由に通信できます。
@@ -268,7 +268,7 @@ Server version: 5.7.24 MySQL Community Server (GPL)
 
 これでマッピングしたポートへアクセス出来ました。
 
-## カスタムイメージの作成
+### カスタムイメージの作成
 Dockerfileを定義して、自分だけのカスタムイメージを作ります。
 
 Dockerfile は、コンテナーイメージを作成するもう 1 つの⽅法であり、これらの制限に対処します。
@@ -306,7 +306,7 @@ CMD ["-D", "FOREGROUND"]    ⑫
 ⑪ENTRYPOINT は、イメージがコンテナーで実⾏される際に実⾏するデフォルトのコマンドを指定します。省略した場合、デフォルトの ENTRYPOINT は /bin/sh -c になります。
 ⑫CMD は、ENTRYPOINT 命令のデフォルト引数を』供します。デフォルトの ENTRYPOINT が適⽤される場合 (/bin/sh -c)、CMD はコンテナー起動時に実⾏される実⾏可能なコマンドとパラメーターを形成します。
 ```
-## 演習：Dockerfileによるコンテナ作成
+### 演習：Dockerfileによるコンテナ作成
 演習用に任意のディレクトリを作成します。
 ```
 $ mkdir -p ~/GitHub/Day02-DockerAndGit/src
@@ -404,3 +404,60 @@ $ curl 127.0.0.1:20080
 </html>
 ```
 このような結果が返って来れば成功です。
+
+## Git編
+下記のGitHubリンクから自分だけのリポジトリを作成します。
+https://github.com/new
+
+![](https://raw.githubusercontent.com/NakamuraYosuke/Day02-DockerAndGit/main/images/createrepo.png)
+
+`Repository name`には好きな名前をつけてください。
+
+一般公開する場合はPublic、自分だけが利用する場合はPrivateを選択します。
+
+作成を実行する場合は、`Create repository`をクリックします。
+
+次に、ターミナルに戻ります。
+先ほどDocker編の最後に作成したDockerfileがあるディレクトリに移動します。
+
+```
+$ cd ~/GitHub/Day02-DockerAndGit
+```
+
+Dockerfileとsrcディレクトリ配下にindex.htmlがあることを確認します。
+```
+$ ls -la Dockerfile src/
+```
+
+まずは、Dockerfileが置かれたディレクトリをリポジトリ化します。
+```
+$ git init
+```
+
+リポジトリに対して、カレントディレクトリのファイルを追加します。
+```
+$ git add .
+```
+
+追加・変更をリポジトリに対してコミットします。コミットの際は`-m`でコメントが必要となります。
+```
+$ git commit -m "first commit"
+```
+
+このブランチを`main`ブランチに設定します。
+```
+$ git branch -M main
+```
+
+先ほど作成したGitHubのリポジトリをoriginという名前に設定します。
+```
+$ git remote add origin https://github.com/NakamuraYosuke/Day02-dockerfile.git
+```
+
+先ほど作成したGitHubのリポジトリ（origin）へローカルのmainブランチの内容をpushします。
+```
+$ git push -u origin main
+```
+
+GitHubの画面から、下記のようにファイルが登録されているのが確認できれば成功です。
+![](https://raw.githubusercontent.com/NakamuraYosuke/Day02-DockerAndGit/main/images/repopush.png)
