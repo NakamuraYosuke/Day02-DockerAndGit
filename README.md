@@ -16,7 +16,7 @@ $ docker search registry.access.redhat.com/rhel7.6
 下記のような結果が表示されるはずです。
 ```
 NAME      DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
-rhel7.6   This platform image provides a minimal runti…   0                    
+rhel7.6   This platform image provides a minimal runti…   0
 ```
 
 検索したイメージを取得する場合には、pullサブコマンドを使用してローカルのレジストリに保存します。
@@ -28,8 +28,8 @@ $ docker pull registry.access.redhat.com/rhel7.6
 ```
 sing default tag: latest
 latest: Pulling from rhel7.6
-c9281c141a1b: Pull complete 
-31114e120ca0: Pull complete 
+c9281c141a1b: Pull complete
+31114e120ca0: Pull complete
 Digest: sha256:6189d115a2898c6c3a6d5f72db760f5062e571e12aabbedd81067facc1152377
 Status: Downloaded newer image for registry.access.redhat.com/rhel7.6:latest
 registry.access.redhat.com/rhel7.6:latest
@@ -121,10 +121,10 @@ MySQLのコンテナイメージを取得します。
 $ docker pull registry.access.redhat.com/rhscl/mysql-57-rhel7
 Using default tag: latest
 latest: Pulling from rhscl/mysql-57-rhel7
-1c9f515fc6ab: Pull complete 
-1d2c4ce43b78: Pull complete 
-f1e961fe4c51: Pull complete 
-9f1840c3b3bd: Pull complete 
+1c9f515fc6ab: Pull complete
+1d2c4ce43b78: Pull complete
+f1e961fe4c51: Pull complete
+9f1840c3b3bd: Pull complete
 Digest: sha256:88d5bc2fbdf703c0b0e072751af2cd54fb527649433f38feb359489b252ec905
 Status: Downloaded newer image for registry.access.redhat.com/rhscl/mysql-57-rhel7:latest
 registry.access.redhat.com/rhscl/mysql-57-rhel7:latest
@@ -205,7 +205,7 @@ Dockerには、コンテナーを作成および管理するためのサブコ�
 コンテナーとイメージの状態を変更するサブコマンドで最も使⽤頻度の⾼いものについて、次の図に概要を⽰します。
 ![](https://raw.githubusercontent.com/NakamuraYosuke/Day02-DockerAndGit/main/images/dockerlifecycle1.png)
 
-Dockerは、実⾏中および停⽌中のコンテナーに関する情報を⼊⼿するための便利なサブコマンドも提供します。 
+Dockerは、実⾏中および停⽌中のコンテナーに関する情報を⼊⼿するための便利なサブコマンドも提供します。
 これらのサブコマンドを使⽤して、デバッグ、更新、または報告を⾏うためにコンテナーおよびイメージから情報を抽出することができます。
 コンテナーとイメージの情報をクエリーするサブコマンドで最も使⽤頻度の⾼いものについて、次の図に概要を⽰します。
 ![](https://raw.githubusercontent.com/NakamuraYosuke/Day02-DockerAndGit/main/images/dockerlifecycle2.png)
@@ -220,7 +220,7 @@ Dockerは同じホスト上にコンテナーを作成すると、各コンテ�
 つまり、コンテナーは通常ホストネットワークにアクセスできますが、明⽰的な設定がないと、コンテナーネットワークにアクセスすることはできません。
 
 ### ネットワークのポートマッピング
-ホストネットワークからコンテナーにアクセスすることが難しい場合があります。 
+ホストネットワークからコンテナーにアクセスすることが難しい場合があります。
 
 コンテナーには、利⽤可能なアドレスのプールから IP アドレスが割り当てられています。コンテナーが破棄されると、コンテナーのアドレスは利⽤可能なアドレスのプールに解放されます。別の問題は、コンテナーのソフトウェア定義ネットワークは、コンテナーホストによってのみアクセスできるということです。
 
